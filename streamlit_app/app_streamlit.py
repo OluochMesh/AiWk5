@@ -12,7 +12,7 @@ st.set_page_config(
 # ✅ Load Model
 @st.cache_resource
 def load_model():
-    saved = joblib.load("../models/trained_model.pkl")
+    saved = joblib.load("models/trained_model.pkl")
     return saved["preprocessor"], saved["model"]
 
 preprocessor, model = load_model()
@@ -26,7 +26,7 @@ st.divider()
 # ✅ Load feature template
 @st.cache_data
 def load_feature_template():
-    df = pd.read_csv("../data/readmission.csv").drop(columns=["readmitted"])
+    df = pd.read_csv("data/readmission.csv").drop(columns=["readmitted"])
     return df
 
 template_df = load_feature_template()
